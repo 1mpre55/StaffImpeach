@@ -1,0 +1,27 @@
+use-vault: true
+
+# List of groups with an impeachment votes requirement for each group. When enough votes are collected, the player is impeached by removing them from the current group and adding them to the next one if it exists. Player's current group is either their primary group or the highest group in the list that they have. Having an impeachable player be a member of multiple groups listed below may lead to unwanted results.
+# Note: this list is ignored if 'use-vault' is false (or if Vault is not installed)
+# Warning: duplicate groups are not allowed! Using groups that do not exist will lead to unpredictable results (depending on your permissions plugin). Do not include the default group unless all impeachable users are also members of another group that's not in this list
+groups:
+- Owner, 50
+- Co-owner, 25
+- Moderator, 10
+- User, 5
+
+# The max number of times a player can vote to impeach
+votes-limit: 10
+
+# Message to be displayed when a player uses /impeachvotes command. <PLAYER> = player's name or "you" if viewing own stats, <VOTES> = number of impeachment votes, <VOTESREQ> = total number of votes required for next impeachment, <VOTESLEFT> = <VOTESREQ> - <VOTES>
+view-votes-message: <VOTES> players have voted to impeach <PLAYER>
+
+
+
+# Note: 'impeach-commands' and 'votes-to-impeach' have no effect if 'use-vault' is true, Vault is installed and at least one group was specified
+
+# List of commands that will be executed to impeach a player. Commands are executed from console
+impeach-commands:
+- pex demote <IMPEACHED_PLAYER>
+
+# How many votes does it take to impeach a player
+votes-to-impeach: 5

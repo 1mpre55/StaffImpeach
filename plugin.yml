@@ -1,0 +1,39 @@
+name: StaffImpeach
+version: 0.1
+main: com.impress.StaffImpeach.StaffImpeach
+description: Impeach your staff
+author: 1mpre55, senorbunneh
+softdepend: [Vault]
+commands:
+  staffimpeach:
+    description: Impeachment command
+    usage: /<command> <player-name>
+    aliases:
+    - impeach
+  staffimpeachvotes:
+    description: See how many players voted to impeach you or another player
+    usage: /<command> [player-name]
+    aliases:
+    - impeachvotes
+permissions:
+  staffimpeach.*:
+    children:
+      staffimpeach.impeach: true
+      staffimpeach.impeachable: true
+      staffimpeach.viewvotes.*: true
+    description: Gives all StaffImpeach permissions
+  staffimpeach.viewvotes.*:
+    children:
+      staffimpeach.viewvotes.self: true
+      staffimpeach.viewvotes.others: true
+    default: true
+    description: Allows to view anyone's impeachment status
+  staffimpeach.impeach:
+    default: op
+    description: Allows to vote to impeach other players
+  staffimpeach.impeachable:
+    description: Allows voters to vote to impeach this player
+  staffimpeach.viewvotes.self:
+    description: Allows viewing how many players voted to impeach you 
+  staffimpeach.viewvotes.others:
+    description: Allows viewing how many players voted to impeach another player
